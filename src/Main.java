@@ -11,7 +11,7 @@ void main() {
     float temp = 36.6f;
     double pi = 3.141592654;
 
-    char grade ='A';
+    char grade = 'A';
     boolean isActive = true;
 
     Byte smallNumberW = Byte.MAX_VALUE;
@@ -33,18 +33,16 @@ void main() {
     int primitiveValue = 8;
     Integer wrapperValue = primitiveValue;
 
-    byte b= 120;
+    byte b = 120;
     short s = b;
     int i = s;
     long l = i;
 
     long ls = 64_000;
-    short iq = (short)ls; //casting
+    short iq = (short) ls; //casting
     //int iq = ls; -> required int, provided long.
     IO.println(ls);
     IO.println(iq);
-
-
 
 
     //binary code
@@ -64,7 +62,7 @@ void main() {
 
     //0110 1101 0110 1101 -> a short. not a byte -> value -> 28,013
     short number1 = 28013;
-    byte number2 = (byte)number1;
+    byte number2 = (byte) number1;
     IO.println("Number 2 = " + number2);
     //note number2 is the same as the binary 0110 1101 above (*)
     IO.println(number2 * 2);
@@ -72,7 +70,7 @@ void main() {
     //Lesson 4/5: string class
 
     String caveman1 = "Fred Flintstone";
-    String caveman2 = new String ("Fred Flintstone"); //allows for 2 fred flints in the heap
+    String caveman2 = new String("Fred Flintstone"); //allows for 2 fred flints in the heap
     IO.println(caveman1 == caveman2); //this will be false. but if you didn't do the above "new string etc" it would be true.
     IO.println(caveman1.equals(caveman2)); //can also just do this. slower but sometimes "==" doesn't right.
     String caveman3 = "Wilma Flintstone";
@@ -129,11 +127,11 @@ void main() {
     //long --> int --> short --> byte (even if number range is inside group, still cant transfer)
     long longNum = 100;
     //int intNum = longNum;no work must cast:
-    int intNum = (int)longNum;
+    int intNum = (int) longNum;
 
     int numInt1 = 2;
     short numShort2 = 3;
-    float result = numInt1/numShort2;
+    float result = numInt1 / numShort2;
     long numLong3 = 51617228l;
     double result1 = numInt1 + numLong3; //WIDENING CONVERSION (as double is wider than above)
     //right hand needs to match the deepest type on the left (i.e. WIDENESS above^^)
@@ -142,7 +140,7 @@ void main() {
     //NARROWING CONVERSION:
     double price = 1.49; //litre price for petrol
     int capacity = 20; //in litres
-    int totalCostToFillTankFromEmpty =  capacity * (int) price; //NARROWING CONVERSION!!!!
+    int totalCostToFillTankFromEmpty = capacity * (int) price; //NARROWING CONVERSION!!!!
     double totalCostToFillTankFromEmptyDouble = capacity * price;
     IO.println(totalCostToFillTankFromEmpty); //narrowing
     IO.println(totalCostToFillTankFromEmptyDouble); //not narrowing
@@ -161,7 +159,7 @@ void main() {
     IO.println(value);
 //
     char letter1 = 'B';
-    char newLetter = (char)(letter1 + 32);
+    char newLetter = (char) (letter1 + 32);
     IO.println(newLetter);
     //final
     final int MAX_RETRIES = 5; //naming convention for final is uppercase + camelcase
@@ -171,7 +169,7 @@ void main() {
     //stack is an ordered area.
 
 
-IO.println(3+6*7/9.0f); //prints float as float value is the widest
+    IO.println(3 + 6 * 7 / 9.0f); //prints float as float value is the widest
 
     //unary assignments
     byte b1 = -1;
@@ -180,8 +178,68 @@ IO.println(3+6*7/9.0f); //prints float as float value is the widest
     IO.println(b1);
     IO.println(-b2);
 
-    IO.println(1/2.0); //double is the widest and so 0.5 outputs;
-    IO.println(1/2); // int is the widest so 0 outputs;
+    IO.println(1 / 2.0); //double is the widest and so 0.5 outputs;
+    IO.println(1 / 2); // int is the widest so 0 outputs;
+
+
+/*JAVA HOMEWORK:
+ String exercise:
+
+Task 1:Extract substrings
+Task 2:Validate user commands
+Task 3: Convert names to uppercase
+Task 4: Check content equality
+*/
+
+
+
+    Scanner reader = new Scanner(System.in);
+    String faveMonth = "";
+
+    while (true) {
+        IO.println(" \nGive me your favourite month of the year");
+        faveMonth = reader.nextLine().trim();
+
+
+        String[] Months = new String[]{"january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"};
+        if (Arrays.asList(Months).contains(faveMonth.toLowerCase())) { //(Task 2: Validate user commands)
+            faveMonth = faveMonth.substring(0, 1).toUpperCase() + faveMonth.substring(1); //(task 3: Changing to upper case)
+            System.out.printf("Your favourite Month is %s. Nice! \n", faveMonth);
+            String shortMonth = faveMonth.substring(0, 3);
+            System.out.printf("This month can be shortened to %s.", shortMonth); //(task 1: Extract substrings)
+
+            break;
+        } else {
+            System.out.printf("%s is not a month. Please try again", faveMonth);
+
+        }
+    }
+    while (true) {
+        IO.println(" \nJust to double check, what's your favorite Month?");  //(Task 4: Check content equality)
+        String faveMonth2 = reader.nextLine().trim().toLowerCase();
+        IO.println(faveMonth2);
+        IO.println(faveMonth);
+        if (faveMonth2.toLowerCase().equals(faveMonth.toLowerCase())) {
+            IO.println("Good work. You remembered correctly.");
+            break;
+
+        } else {
+            IO.println("WRONG! Try again");
+        }
+    }
+
+
+
+
+
+
+
+    //
+
+
+
+
+
 
 
 
