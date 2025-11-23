@@ -120,7 +120,7 @@ void main() {
     short type5 = 128;
     short type6 = 128;
     IO.println(type5 == type6);
-    //IO.println(type5.equals(type6)); doesn't work as short is primitive and
+    //IO.println(type5.equals(type6)); Doesn't work as short is primitive and
     // primitive cannot use .equals - only wrapper can.
 
 //lesson 6: casting
