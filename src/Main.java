@@ -9,7 +9,6 @@ void main() {
     long distance = 500_000_000_000l;
 
     float temp = 36.6f;
-    double pi = 3.141592654;
 
     char grade = 'A';
     boolean isActive = true;
@@ -51,7 +50,7 @@ void main() {
 
     // 0000 0001 -> denary value 1
     // 1111 111 0 -> denary value -2
-    // add 1
+    // add 1r
     // 1111 1111 -> denary value -1
 
     // 0110 1101 Byte value -> 109 (*)
@@ -192,7 +191,7 @@ Task 4: Check content equality
 */
 
 
-
+/* HW COMMENT BEGINS
     Scanner reader = new Scanner(System.in);
     String faveMonth = "";
 
@@ -236,40 +235,56 @@ Task 4: Check content equality
 
     //
 
+HW COMMENT ENDS
+
+*/
+
+    // Lesson 7: 24th Nov
+
+    byte age = 15;
+    IO.println(age > 16);
+
+    String user = "Admin";
+    String pwd = "Password";
+
+    String userInput = "admin";
+    String userPwd = "password";
+
+    if (user.toLowerCase().equals(userInput.toLowerCase())) {
+        IO.println("User Matches");
+        if (!(pwd == userPwd)) {
+            IO.println("Password doesn't match");
+        }
+    }
+
+//lesson 8-13: was off monday and tuesday.
+//3rd dec:
+    //lesson 14 - error handling
+
+    Scanner reader = new Scanner(System.in); //scanner is built in class to read input
+    String strX = reader.nextLine();
+    int z = Integer.parseInt(strX);
+    int w = 10 / z;
+    //don't forget autoboxing / unboxing;
+
+    String name = null;
+    IO.println(name.length());
+//try catch
+    try {
+        int A = 10 / 0;
+    }
+    catch (ArithmeticException e) {
+        IO.println("cant divide by zero");
+    }
+
+//PACKAGES:
+//package com.store / import xyz. confusing; Worth loojing into this.
 
 
 
 
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+public void loadData() throws IOException {
+    Files.readAllLines(Path.of("data.csv"));
 }
